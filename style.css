@@ -1,0 +1,45 @@
+/* Tema premium hitam-emas dan layout responsif */
+:root{color-scheme:dark;--gold:#ffd45a;--gold2:#b98518;--bg:#080808;--panel:rgba(12,12,12,.88);--line:rgba(255,212,90,.2);--muted:#8f8a7d}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:#f7f2e5}
+body{min-height:100svh;position:relative;background-image:linear-gradient(135deg,rgba(0,0,0,.82),rgba(0,0,0,.72)),var(--custom-bg,none);background-position:center;background-repeat:no-repeat;background-size:var(--bg-fit,cover);background-attachment:fixed}
+body.blur-mode{background-image:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),var(--custom-bg,none);filter:none}
+body.blur-mode:before{content:"";position:fixed;inset:-20px;z-index:-1;background-image:var(--custom-bg);background-position:center;background-size:cover;filter:blur(16px);opacity:.7}
+button,select{font:inherit}
+button{cursor:pointer}
+.app-shell{width:min(100%,560px);margin:0 auto;padding:calc(14px + env(safe-area-inset-top)) 14px calc(20px + env(safe-area-inset-bottom));min-height:100svh;display:flex;flex-direction:column;gap:14px}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:5px 2px}
+.brand{display:flex;align-items:center;gap:11px}.brand-mark{width:42px;height:42px;border:1px solid var(--gold);border-radius:13px;display:grid;place-items:center;color:var(--gold);font-size:26px;box-shadow:0 0 18px #d69b2430}
+.brand h1{font-size:14px;letter-spacing:1.5px;margin:0;font-weight:900}.brand h1 span{color:var(--gold)}.brand p{font-size:9px;letter-spacing:2px;color:var(--muted);margin:4px 0 0}
+.icon-button{width:40px;height:40px;border-radius:12px;background:#17140d;border:1px solid var(--line);color:var(--gold);font-size:20px}
+.calculator-card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:22px;box-shadow:0 15px 50px #0009,inset 0 1px #ffffff08;backdrop-filter:blur(14px)}
+.calculator-card{padding:14px}
+.screen{min-height:142px;padding:15px 13px 12px;border-radius:16px;background:linear-gradient(145deg,#17150fdd,#080808eF);border:1px solid #ffffff0b;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.screen-top{display:flex;justify-content:space-between;align-items:center;color:#9d9274;font-size:9px;letter-spacing:1.7px;margin-bottom:auto}
+.angle-chip{border:1px solid var(--line);border-radius:20px;padding:4px 9px;color:var(--gold)}
+.expression{font-size:clamp(19px,5vw,26px);color:#c7c0ae;text-align:right;min-height:35px;overflow-wrap:anywhere;word-break:break-word}
+.result{font-size:clamp(32px,9vw,43px);font-weight:750;text-align:right;color:var(--gold);overflow-wrap:anywhere;min-height:52px;text-shadow:0 0 20px #ffc83d26}
+.toolbar{display:grid;grid-template-columns:1fr 1fr 1.35fr;gap:7px;margin:12px 0}
+.tool-button{border:1px solid var(--line);border-radius:10px;background:#17140e;color:#e7d6a2;padding:10px 5px;font-size:11px}.tool-button span{font-size:10px}
+.keypad{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.key{min-width:0;height:clamp(47px,12vw,57px);border-radius:13px;border:1px solid #ffffff0d;background:linear-gradient(145deg,#24231f,#141310);color:#f5f1e8;font-size:clamp(16px,4.5vw,20px);font-weight:650;box-shadow:0 4px 9px #0007;transition:transform .1s,border-color .1s}
+.key:active{transform:scale(.96);border-color:var(--gold)}
+.key.function{font-size:14px;color:#e6c76f;background:linear-gradient(145deg,#282113,#17140d);border-color:#d7a93b22}
+.key.operator{color:var(--gold);font-size:23px;background:#211b0d}
+.key.danger{color:#ff9b79;background:#281612}
+.key.equals{grid-column:span 3;color:#151006;background:linear-gradient(120deg,#ffe69a,#d39a25);font-size:28px;border:0}
+.panel{padding:16px}.hidden{display:none!important}
+.panel-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.panel-heading h2{font-size:15px;margin:0;color:var(--gold)}
+.close-button{background:transparent;border:0;color:#cfc7b5;font-size:18px}
+.field-label{display:block;color:#bdb39c;font-size:12px;margin:10px 0 7px}
+select{width:100%;padding:12px;background:#17140e;border:1px solid var(--line);border-radius:10px;color:#f4e7c1}
+.secondary-button,.upload-button{display:block;width:100%;padding:12px;border:1px solid var(--line);border-radius:11px;background:#1d190f;color:var(--gold);font-size:12px;text-align:center;margin-top:10px}
+.upload-button{font-weight:700;background:linear-gradient(120deg,#f6d77e,#b9841c);color:#171006;border:0}
+#imagePicker{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.small-note{font-size:11px;color:#a59d8a;line-height:1.5}.button-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.history-list{max-height:240px;overflow:auto}.history-item{padding:10px 2px;border-bottom:1px solid #ffffff12;display:flex;justify-content:space-between;gap:12px;font-size:12px}.history-item button{background:none;border:0;color:var(--gold);text-align:right}.history-expression{color:#bcb5a5;overflow-wrap:anywhere}.history-answer{color:var(--gold);font-weight:700;white-space:nowrap}.empty-state{color:#8e8778;font-size:12px;text-align:center;padding:16px}
+footer{text-align:center;color:#746d5d;font-size:9px;letter-spacing:1.8px;margin-top:auto;padding:8px}footer span{color:var(--gold)}
+.toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#211b0d;border:1px solid var(--gold2);color:#ffe7a0;border-radius:20px;padding:10px 16px;font-size:12px;z-index:10;transition:.2s;max-width:90%;text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(min-width:480px){.app-shell{padding-left:20px;padding-right:20px}.calculator-card{padding:18px}.keypad{gap:10px}}
+@media(orientation:landscape) and (max-height:600px){.app-shell{width:min(100%,900px);padding-top:8px;gap:8px}.topbar{padding:0}.brand-mark{width:34px;height:34px}.calculator-card{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.2fr);gap:12px;padding:10px}.screen{grid-column:1;grid-row:1;min-height:115px}.toolbar{grid-column:1;grid-row:2;margin:0;align-self:start}.keypad{grid-column:2;grid-row:1 / span 2;gap:6px}.key{height:clamp(35px,9vh,48px)}footer{padding:0}}
+@media(max-width:359px){.app-shell{padding-left:8px;padding-right:8px}.calculator-card{padding:9px}.keypad{gap:5px}.key{height:44px}.key.function{font-size:12px}}
